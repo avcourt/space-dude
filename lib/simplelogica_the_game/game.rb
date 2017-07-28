@@ -9,15 +9,21 @@ module SimplelogicaTheGame
     SPEED = 400
 
     IMAGE_ASSETS = {
-      background_title: "assets/images/backgrounds/title.png",
+      background_title: "assets/images/backgrounds/space_dick.png",
       background_stage: "assets/images/backgrounds/stage.png",
-      stageUI: "assets/images/backgrounds/stageUI.png",
+      stageUI: "assets/images/backgrounds/spaceship_in_song.png",
       background_game_over: "assets/images/backgrounds/game_over_1.png",
       space: "assets/images/backgrounds/space.png",
       space_2: "assets/images/backgrounds/space_2.jpg",
       space_3: "assets/images/backgrounds/space_3.png",
       space_4: "assets/images/backgrounds/space_4.png",
-      ship: "assets/images/player/ship.png",
+      ship: "assets/images/player/spaceship_3_small_longer.png",
+      ship_burst: "assets/images/player/spaceship_3_small_long_burst.png",
+      ship_reverse: "assets/images/player/spaceship_3_small_reverse.png",
+      ship_left: "assets/images/player/spaceship_left_1.png",
+      ship_right: "assets/images/player/spaceship_right_1.png",
+      shield: "assets/images/player/shield_p.png",
+      ship_shield: "assets/images/player/shield_ship.png",
       bullet_0: "assets/images/player/bullet_0.png",
       bullet_1: "assets/images/player/bullet_1.png",
       bullet_2: "assets/images/player/bullet_2.png",
@@ -30,14 +36,26 @@ module SimplelogicaTheGame
     }
 
     AUDIO_ASSETS = {
-      title_music: "assets/fixtures/title.wav",
-      stage_music: "assets/fixtures/stage.wav",
-      game_over_music: "assets/fixtures/game_over.wav"
+      title_music: "assets/fixtures/Tronic-Trouble_v001.mp3",
+      stage_music_0: "assets/fixtures/Hypnotic-Puzzle.mp3",
+      stage_music_1: "assets/fixtures/The-Toy-Factory.mp3",
+      stage_music_2: "assets/fixtures/Mega_Drive-Converter.mp3",
+      stage_music_3: "assets/fixtures/Defending-Their-City.mp3",
+      game_over_music: "assets/fixtures/Evil-Automation.mp3",
+
     }
 
     FX_ASSETS = {
+      shoot_0: "assets/fixtures/shoot.wav",
+      shoot_1: "assets/fixtures/bomb_2.wav",
+      shoot_2: "assets/fixtures/missle.wav",
+      shoot_3: "assets/fixtures/lazt.wav",
+      kill: "assets/fixtures/bomb_explosion.wav",
       shoot: "assets/fixtures/shoot.wav",
-      kill: "assets/fixtures/bomb_explosion.wav"
+      death: "assets/fixtures/death.wav",
+      blast: "assets/fixtures/blast.wav",
+      radio: "assets/fixtures/radio.flac",
+
     }
 
     FONT_ASSETS = {
@@ -46,12 +64,14 @@ module SimplelogicaTheGame
 
     def initialize
       super 857, 1050
-      self.caption = "Simplelogica: The Game"
+      self.caption = "Space Dick: PT:1"
       @images = {}
       @audio = {}
+      @track = 0
       @fx = {}
 
       @ship = nil
+      @shield = nil
       @bullets = []
       @enemies = []
       @screen = nil
@@ -69,13 +89,14 @@ module SimplelogicaTheGame
 
     def stage
       @audio[:title_music].stop()
-      @audio[:stage_music].play(true)
+      @audio[:"stage_music_#{@track = rand(4)}"].play(true)
       @screen = :stageUI
     end
 
     def draw
       @images[@screen].draw(0, 0, 2)
       @font.draw("esc to exit", 20, 10, 3, 1, 1, Gosu::Color::WHITE)
+
 
       if @screen == :stageUI
         @ship.draw
@@ -89,13 +110,18 @@ module SimplelogicaTheGame
         end
         @images[:space].draw(0, @space_y, 0)
 
-        @font.draw("SCORE", 134, 902, 3, 2, 1, Gosu::Color::WHITE)
-        @font.draw("#{@score}".rjust(5, '0'), 136, 936, 3, 2, 1, Gosu::Color::WHITE)
+        @font.draw("SCORE", 50, 878, 3, 2, 1, Gosu::Color::WHITE)
+        @font.draw("#{@score}".rjust(5, '0'), 52, 918, 3, 2, 1, Gosu::Color::WHITE)
 
         # @font.draw("#{@ship.bullet}", 668, 892, 3, 2, 1, Gosu::Color::WHITE)
 
-        @font.draw("WEAPON", 597, 877, 3, 1.5, 0.75, Gosu::Color::WHITE)
-        @images[:"bullet_#{@ship.bullet}"].draw(668, 921, 2, 2, 2)
+        @font.draw("WEAPON", 712, 877, 3, 1.2, 0.75, Gosu::Color::WHITE)
+        @images[:"bullet_#{@ship.bullet}"].draw(736, 935, 2, 2.5, 2.5)
+        track_title = AUDIO_ASSETS[:"stage_music_#{@track}"].split('/')[-1]
+
+        @font.draw("Track: #{track_title}", 580, 10, 3, 0.6, 0.7, Gosu::Color::GRAY)
+        # @font.draw("Track:#{@track}", 600, 10, 3, 0.7, 0.7, Gosu::Color::WHITE)
+
 
       elsif @screen == :background_game_over
         @font.draw("SCORE: #{@score.to_s.rjust(5, '0')}", 252, 580, 3, 2, 1, Gosu::Color::WHITE)
@@ -127,6 +153,13 @@ module SimplelogicaTheGame
           self.shoot
         end
         @ship.bullet = (@ship.bullet + 1) % 4 if key == (Gosu::KbA)
+        # @audio[:"stage_music_#{(@track += 1) % 4}"].play(true) if key == (Gosu::KbD)
+        if key == (Gosu::KbD)
+          @fx[:radio].play(0.2)
+          @audio[:"stage_music_#{@track = (@track + 1) % 4}"].play(true)
+        end
+
+
       end
     end
 
@@ -162,7 +195,7 @@ module SimplelogicaTheGame
 
     def shoot
       @bullets.push(Bullet.new(@ship.x, @ship.y, @ship.bullet)) unless @ship.nil?
-      @fx[:shoot].play(0.2)
+      @fx[:"shoot_#{@ship.bullet}"].play(0.2)
     end
 
     def spawn_enemies
@@ -179,7 +212,8 @@ module SimplelogicaTheGame
 
     def game_over
       @dead = true
-      @fx[:kill].play
+      @fx[:blast].play(0.3)
+      @fx[:shoot_2].play
       @screen = :background_game_over
       @audio[:game_over_music].play(true)
     end
