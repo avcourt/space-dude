@@ -11,10 +11,19 @@ module SimplelogicaTheGame
     IMAGE_ASSETS = {
       background_title: "assets/images/backgrounds/title.png",
       background_stage: "assets/images/backgrounds/stage.png",
-      background_game_over: "assets/images/backgrounds/game_over.png",
+      stageUI: "assets/images/backgrounds/stageUI.png",
+      background_game_over: "assets/images/backgrounds/game_over_1.png",
       space: "assets/images/backgrounds/space.png",
+      space_2: "assets/images/backgrounds/space_2.jpg",
+      space_3: "assets/images/backgrounds/space_3.png",
+      space_4: "assets/images/backgrounds/space_4.png",
       ship: "assets/images/player/ship.png",
-      bullet: "assets/images/player/bullet.png",
+      bullet_0: "assets/images/player/bullet_0.png",
+      bullet_1: "assets/images/player/bullet_1.png",
+      bullet_2: "assets/images/player/bullet_2.png",
+      bullet_3: "assets/images/player/bullet_3.png",
+      # bullet_4: "assets/images/player/bullet_4.png",
+      # bullet_5: "assets/images/player/bullet_5.png",
       enemy_1: "assets/images/enemies/enemy_1.png",
       enemy_2: "assets/images/enemies/enemy_2.png",
       enemy_3: "assets/images/enemies/enemy_3.png"
@@ -61,14 +70,14 @@ module SimplelogicaTheGame
     def stage
       @audio[:title_music].stop()
       @audio[:stage_music].play(true)
-      @screen = :background_stage
+      @screen = :stageUI
     end
 
     def draw
       @images[@screen].draw(0, 0, 2)
       @font.draw("esc to exit", 20, 10, 3, 1, 1, Gosu::Color::WHITE)
 
-      if @screen == :background_stage
+      if @screen == :stageUI
         @ship.draw
         @bullets.each {|bullet| bullet.draw }
         @enemies.each {|enemy| enemy.draw }
@@ -82,13 +91,19 @@ module SimplelogicaTheGame
 
         @font.draw("SCORE", 134, 902, 3, 2, 1, Gosu::Color::WHITE)
         @font.draw("#{@score}".rjust(5, '0'), 136, 936, 3, 2, 1, Gosu::Color::WHITE)
+
+        # @font.draw("#{@ship.bullet}", 668, 892, 3, 2, 1, Gosu::Color::WHITE)
+
+        @font.draw("WEAPON", 597, 877, 3, 1.5, 0.75, Gosu::Color::WHITE)
+        @images[:"bullet_#{@ship.bullet}"].draw(668, 921, 2, 2, 2)
+
       elsif @screen == :background_game_over
         @font.draw("SCORE: #{@score.to_s.rjust(5, '0')}", 252, 580, 3, 2, 1, Gosu::Color::WHITE)
       end
     end
 
     def update
-      if @screen == :background_stage
+      if @screen == :stageUI
         self.update_delta
         self.spawn_enemies
 
@@ -107,10 +122,11 @@ module SimplelogicaTheGame
 
       if @screen == :background_title
         self.stage
-      elsif @screen == :background_stage
+      elsif @screen == :stageUI
         if key == Gosu::KbSpace
           self.shoot
         end
+        @ship.bullet = (@ship.bullet + 1) % 4 if key == (Gosu::KbA)
       end
     end
 
@@ -145,7 +161,7 @@ module SimplelogicaTheGame
     end
 
     def shoot
-      @bullets.push(Bullet.new(@ship.x, @ship.y)) unless @ship.nil?
+      @bullets.push(Bullet.new(@ship.x, @ship.y, @ship.bullet)) unless @ship.nil?
       @fx[:shoot].play(0.2)
     end
 

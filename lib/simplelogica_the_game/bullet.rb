@@ -4,18 +4,19 @@ module SimplelogicaTheGame
     include Sprite
     SPEED = 400 # pixels / second
 
-    def initialize(x, y)
+    def initialize(x, y, num)
       self.initialize_sprite
-      @image = $game.images[:bullet]
+      @image = $game.images[:"bullet_#{num}"]
       @radius = 10
       @x = x
       @y = y
       @z = 1
+      @num = num
     end
 
     def update
       # move upwards
-      @y -= SPEED * $game.delta
+      @y -= SPEED * $game.delta * (@num/3 + 1)
 
       # collisions against enemies
       $game.enemies.each do |enemy|
@@ -31,6 +32,6 @@ module SimplelogicaTheGame
       # destroy the laser when out of the screen
       self.kill! if @y < -15
     end
-    
+
   end
 end
