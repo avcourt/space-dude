@@ -100,6 +100,7 @@ module SimplelogicaTheGame
 
       if @screen == :stageUI
         @ship.draw
+        @shield.draw
         @bullets.each {|bullet| bullet.draw }
         @enemies.each {|enemy| enemy.draw }
 
