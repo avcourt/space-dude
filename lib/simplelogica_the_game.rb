@@ -1,3 +1,4 @@
+require "simplelogica_the_game/shield"
 require "simplelogica_the_game/version"
 require "simplelogica_the_game/sprite"
 require "simplelogica_the_game/bullet"
@@ -15,7 +16,7 @@ module SimplelogicaTheGame
       puts "\r Something goes wrong! :("
     end
   end
-  
+
 end
 
 SimplelogicaTheGame.init

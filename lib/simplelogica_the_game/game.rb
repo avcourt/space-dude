@@ -32,7 +32,8 @@ module SimplelogicaTheGame
       # bullet_5: "assets/images/player/bullet_5.png",
       enemy_1: "assets/images/enemies/enemy_1.png",
       enemy_2: "assets/images/enemies/enemy_2.png",
-      enemy_3: "assets/images/enemies/enemy_3.png"
+      enemy_3: "assets/images/enemies/enemy_3.png",
+      empty: "assets/images/player/empty.png"
     }
 
     AUDIO_ASSETS = {
@@ -71,7 +72,7 @@ module SimplelogicaTheGame
       @fx = {}
 
       @ship = nil
-      @shield = nil
+      # @shield = new
       @bullets = []
       @enemies = []
       @screen = nil
@@ -100,7 +101,7 @@ module SimplelogicaTheGame
 
       if @screen == :stageUI
         @ship.draw
-        @shield.draw
+        # @shield.draw
         @bullets.each {|bullet| bullet.draw }
         @enemies.each {|enemy| enemy.draw }
 
@@ -125,7 +126,15 @@ module SimplelogicaTheGame
 
 
       elsif @screen == :background_game_over
-        @font.draw("SCORE: #{@score.to_s.rjust(5, '0')}", 252, 580, 3, 2, 1, Gosu::Color::WHITE)
+        @font.draw("SCORE: #{@score.to_s.rjust(5, '0')}", 244, 520, 3, 2, 1, Gosu::Color::WHITE)
+
+        prompt = "Hit <Enter> to play again"
+        if Time.now.to_i % 2 == 0
+            @font.draw(prompt, 229, 445, 3, 1.2, 0.7, Gosu::Color::AQUA)
+        end
+
+
+
       end
     end
 
@@ -135,6 +144,7 @@ module SimplelogicaTheGame
         self.spawn_enemies
 
         @ship.update
+        @shield.update(@ship.x, @ship.y, 3)
         @bullets.each {|bullet| bullet.update }
         @enemies.each {|enemy| enemy.update }
 
@@ -149,6 +159,11 @@ module SimplelogicaTheGame
 
       if @screen == :background_title
         self.stage
+      elsif @screen == :background_game_over
+        if key == Gosu::KbReturn
+          @dead = false
+          self.begin!
+        end
       elsif @screen == :stageUI
         if key == Gosu::KbSpace
           self.shoot
@@ -186,11 +201,13 @@ module SimplelogicaTheGame
       current_time = Gosu::milliseconds / 1000.0
       @delta = [current_time - @last_time, 0.25].min
       @last_time = current_time
+      puts @last_time
     end
 
     def setup_game
       @last_time = Gosu::milliseconds / 1000.0
       @ship = Ship.new
+      @shield = Shield.new
       @score = 0
     end
 

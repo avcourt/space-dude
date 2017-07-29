@@ -1,19 +1,23 @@
 class Shield
 
-    def initialize(x, y, z)
-      @x = x
-      @y = y
-      @z = z
+    def initialize()
+      @x = 330
+      @y = 330
+      @z = 18
       @image = $game.images[:shield]
     end
 
-    def draw
-      @image.draw_rot(@x, @y, @z, @angle) unless @image.nil?
+    def draw(x, y, z)
+      @image.draw_rot(x, y, z) unless @image.nil?
     end
 
-    def update
+    def update(x, y, z)
+      @x = x
+      @y = y
+      @z = z
+      @image = $game.images[:empty]
       if $game.button_down?(Gosu::KbS)
-        self.draw
+        @image = $game.images[:shield]
       end
     end
 end
