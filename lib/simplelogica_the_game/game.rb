@@ -70,6 +70,7 @@ module SimplelogicaTheGame
       @audio = {}
       @track = 0
       @fx = {}
+      @paused = false
 
       @ship = nil
       # @shield = new
@@ -126,7 +127,7 @@ module SimplelogicaTheGame
 
 
       elsif @screen == :background_game_over
-        @font.draw("SCORE: #{@score.to_s.rjust(5, '0')}", 244, 520, 3, 2, 1, Gosu::Color::WHITE)
+        @font.draw("SCORE: #{@score.to_s.rjust(5, '0')}", 244, 522, 3, 2, 1, Gosu::Color::WHITE)
 
         prompt = "Hit <Enter> to play again"
         if Time.now.to_i % 2 == 0
@@ -140,15 +141,19 @@ module SimplelogicaTheGame
 
     def update
       if @screen == :stageUI
-        self.update_delta
-        self.spawn_enemies
+        unless @paused
+          self.update_delta
+          self.spawn_enemies
 
-        @ship.update
-        @shield.update(@ship.x, @ship.y, 3)
-        @bullets.each {|bullet| bullet.update }
-        @enemies.each {|enemy| enemy.update }
+          @ship.update
+          @shield.update(@ship.x, @ship.y, 3)
+          @bullets.each {|bullet| bullet.update }
+          @enemies.each {|enemy| enemy.update }
 
-        self.handle_kills
+          self.handle_kills
+        else
+          puts "paused"
+        end
       end
     end
 
@@ -165,6 +170,7 @@ module SimplelogicaTheGame
           self.begin!
         end
       elsif @screen == :stageUI
+
         if key == Gosu::KbSpace
           self.shoot
         end
@@ -173,6 +179,9 @@ module SimplelogicaTheGame
         if key == (Gosu::KbD)
           @fx[:radio].play(0.2)
           @audio[:"stage_music_#{@track = (@track + 1) % 4}"].play(true)
+        end
+        if key == (Gosu::KbP)
+          @paused ^= true
         end
 
 
