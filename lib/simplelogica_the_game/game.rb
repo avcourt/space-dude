@@ -13,6 +13,7 @@ module SimplelogicaTheGame
       background_stage: "assets/images/backgrounds/stage.png",
       stageUI: "assets/images/backgrounds/spaceship_in_song.png",
       background_game_over: "assets/images/backgrounds/game_over_1.png",
+      paused_backround: "assets/images/backgrounds/paused_backround.png",
       space: "assets/images/backgrounds/space.png",
       space_2: "assets/images/backgrounds/space_2.jpg",
       space_3: "assets/images/backgrounds/space_3.png",
@@ -124,6 +125,8 @@ module SimplelogicaTheGame
 
         @font.draw("Track: #{track_title}", 580, 10, 3, 0.6, 0.7, Gosu::Color::GRAY)
         # @font.draw("Track:#{@track}", 600, 10, 3, 0.7, 0.7, Gosu::Color::WHITE)
+        @font.draw("PAUSED", 67, 210, 3, 8, 7, Gosu::Color::GRAY) if @paused
+        # @screen = :paused_backround if @paused
 
 
       elsif @screen == :background_game_over
@@ -153,6 +156,7 @@ module SimplelogicaTheGame
           self.handle_kills
         else
           puts "paused"
+          #@screen = :paused_backround
         end
       end
     end
@@ -183,6 +187,8 @@ module SimplelogicaTheGame
         end
         if key == (Gosu::KbP)
           @paused ^= true
+          toggle_music
+          # @screen = :stageUI if @paused
         end
 
 
@@ -249,6 +255,16 @@ module SimplelogicaTheGame
     def restart
       @bullets = []
       @enemies = []
+    end
+
+    def toggle_music
+      current_song = Gosu::Song.current_song
+      # puts "#{Gosu::Song.current_song}"if Gosu::Song.current_song
+      if current_song.playing?
+        current_song.pause
+      else
+        current_song.play(true)
+      end
     end
 
 
