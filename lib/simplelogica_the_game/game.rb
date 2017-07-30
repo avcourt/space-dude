@@ -167,6 +167,7 @@ module SimplelogicaTheGame
       elsif @screen == :background_game_over
         if key == Gosu::KbReturn
           @dead = false
+          restart
           self.begin!
         end
       elsif @screen == :stageUI
@@ -245,5 +246,12 @@ module SimplelogicaTheGame
       @audio[:game_over_music].play(true)
     end
 
-  end
-end
+    def restart
+      @bullets = []
+      @enemies = []
+    end
+
+
+
+  end# class game
+end#module
