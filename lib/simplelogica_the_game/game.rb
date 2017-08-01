@@ -31,9 +31,9 @@ module SimplelogicaTheGame
       bullet_3: "assets/images/player/bullet_3.png",
       # bullet_4: "assets/images/player/bullet_4.png",
       # bullet_5: "assets/images/player/bullet_5.png",
-      enemy_1: "assets/images/enemies/enemy_1.png",
-      enemy_2: "assets/images/enemies/enemy_2.png",
-      enemy_3: "assets/images/enemies/enemy_3.png",
+      enemy_1: "assets/images/enemies/ufo_1.png",
+      enemy_2: "assets/images/enemies/ufo_6.png",
+      enemy_3: "assets/images/enemies/ufo_4.png",
       empty: "assets/images/player/empty.png"
     }
 
@@ -57,6 +57,7 @@ module SimplelogicaTheGame
       death: "assets/fixtures/death.wav",
       blast: "assets/fixtures/blast.wav",
       radio: "assets/fixtures/radio.flac",
+      reload: "assets/fixtures/reload.wav",
 
     }
 
@@ -98,7 +99,7 @@ module SimplelogicaTheGame
 
     def draw
       @images[@screen].draw(0, 0, 2)
-      @font.draw("esc to exit", 20, 10, 3, 1, 1, Gosu::Color::WHITE)
+      @font.draw("ESC to Quit", 20, 10, 3, 1, 0.8, Gosu::Color::GRAY)
 
 
       if @screen == :stageUI
@@ -125,8 +126,15 @@ module SimplelogicaTheGame
 
         @font.draw("Track: #{track_title}", 580, 10, 3, 0.6, 0.7, Gosu::Color::GRAY)
         # @font.draw("Track:#{@track}", 600, 10, 3, 0.7, 0.7, Gosu::Color::WHITE)
-        @font.draw("PAUSED", 67, 210, 3, 8, 7, Gosu::Color::GRAY) if @paused
-        # @screen = :paused_backround if @paused
+        # @font.draw("PAUSED", 67, 210, 3, 8, 7, Gosu::Color::GRAY) if @paused
+        #
+        if @paused
+          @font.draw("PAUSED", 67, 210, 3, 8, 7, Gosu::Color::GRAY)
+          @font.draw("<space> ................ shoot", 230, 500, 3, 1.3, 1, Gosu::Color::WHITE)
+          @font.draw("<A> .... change weapon", 230, 532, 3, 1.3, 1, Gosu::Color::WHITE)
+          @font.draw("<D> ........... change song", 230, 564, 3, 1.3, 1, Gosu::Color::WHITE)
+          @font.draw("<P> ............ toggle pause", 230, 596, 3, 1.3, 1, Gosu::Color::WHITE)
+        end
 
 
       elsif @screen == :background_game_over
