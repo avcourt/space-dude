@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c09a2f2-ba49-4e1d-b6dd-ac1db6d1a22d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/space_dude/version.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/simplelogica_the_game" beforeDir="false" afterPath="$PROJECT_DIR$/bin/space_dude" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/space_dude.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game/bullet.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/space_dude/bullet.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game/enemy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/space_dude/enemy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game/game.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/space_dude/game.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game/shield.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/space_dude/shield.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game/ship.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/space_dude/ship.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game/sprite.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/space_dude/sprite.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/simplelogica_the_game/version.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simplelogica_the_game.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/space_dude.gemspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,50 +21,45 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Gemfile" value="1" />
-          <entry key="Rakefile" value="1" />
+          <entry key="Rakefile" value="2" />
           <entry key="console" value="1" />
           <entry key="gemspec" value="1" />
-          <entry key="md" value="1" />
+          <entry key="gitignore" value="1" />
+          <entry key="md" value="2" />
           <entry key="rb" value="9" />
           <entry key="setup" value="1" />
           <entry key="space_dude" value="1" />
-          <entry key="txt" value="1" />
+          <entry key="txt" value="2" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Ruby" value="14" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Ruby" value="15" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="Rakefile" value="3" />
           <entry key="gemspec" value="10" />
+          <entry key="gitignore" value="2" />
           <entry key="rb" value="11" />
           <entry key="space_dude" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="31" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Ruby" value="34" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/space_dude">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/space_dude/game.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,11 +85,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/space_dude/version.rb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/space_dude/bullet.rb">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -117,7 +94,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/space_dude.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -127,8 +104,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hashh.rb">
+        <entry file="file://$PROJECT_DIR$/LICENSE.txt">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Rakefile">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -144,6 +135,8 @@
         <option value="$PROJECT_DIR$/space_dude.gemspec" />
         <option value="$PROJECT_DIR$/lib/space_dude.rb" />
         <option value="$PROJECT_DIR$/lib/space_dude/game.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -232,12 +225,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537145625903</updated>
-      <workItem from="1537145628548" duration="870000" />
+      <workItem from="1537145628548" duration="1067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="870000" />
+    <option name="totallyTimeSpent" value="1067000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="84" width="1280" height="1413" extended-state="4" />
@@ -274,14 +267,6 @@
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CODE_OF_CONDUCT.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/setup">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -301,12 +286,6 @@
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/hashh.rb">
       <provider selected="true" editor-type-id="text-editor" />
@@ -343,10 +322,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CODE_OF_CONDUCT.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/space_dude.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
