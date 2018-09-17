@@ -4,11 +4,7 @@
 
 ## About
 
-This is a Gosu game, forked from vvvv
-
-## Original author
-
-Iván González, *a.k.a* [dreamingechoes](https://github.com/dreamingechoes)
+This is a Gosu game, forked from dreamingechoes [dreamingechoes](https://github.com/dreamingechoes)
 
 ## Install dependencies
 
