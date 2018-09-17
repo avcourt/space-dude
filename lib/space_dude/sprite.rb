@@ -1,4 +1,4 @@
-module SimplelogicaTheGame
+module SpaceDude
   module Sprite
 
     attr_accessor :x, :y, :z, :angle, :image, :radius

@@ -1,6 +1,6 @@
 # Space Dude
 
-![Space Dude(assets/images/backgrounds/title.png)
+![Space Dude](assets/images/backgrounds/title.png)
 
 ## About
 

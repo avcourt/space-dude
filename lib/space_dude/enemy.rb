@@ -1,4 +1,4 @@
-module SimplelogicaTheGame
+module SpaceDude
   class Enemy
 
     include Sprite

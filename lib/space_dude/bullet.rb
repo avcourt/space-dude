@@ -1,4 +1,4 @@
-module SimplelogicaTheGame
+module SpaceDude
   class Bullet
 
     include Sprite

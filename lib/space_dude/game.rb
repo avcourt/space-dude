@@ -1,6 +1,6 @@
 require 'gosu'
 
-module SimplelogicaTheGame
+module SpaceDude
   class Game < Gosu::Window
 
     attr_reader :images, :audio, :fx, :delta, :enemies, :bullets, :ship
@@ -44,7 +44,6 @@ module SimplelogicaTheGame
       stage_music_2: "assets/fixtures/Mega_Drive-Converter.mp3",
       stage_music_3: "assets/fixtures/Defending-Their-City.mp3",
       game_over_music: "assets/fixtures/Evil-Automation.mp3",
-
     }
 
     FX_ASSETS = {
@@ -58,7 +57,6 @@ module SimplelogicaTheGame
       blast: "assets/fixtures/blast.wav",
       radio: "assets/fixtures/radio.flac",
       reload: "assets/fixtures/reload.wav",
-
     }
 
     FONT_ASSETS = {
@@ -145,8 +143,6 @@ module SimplelogicaTheGame
             @font.draw(prompt, 229, 445, 3, 1.2, 0.7, Gosu::Color::AQUA)
         end
 
-
-
       end
     end
 
@@ -163,7 +159,7 @@ module SimplelogicaTheGame
 
           self.handle_kills
         else
-          puts "paused"
+          # puts "paused"
           #@screen = :paused_backround
         end
       end
@@ -274,7 +270,6 @@ module SimplelogicaTheGame
         current_song.play(true)
       end
     end
-
 
 
   end# class game
