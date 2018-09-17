@@ -1,10 +1,10 @@
-# Simplelogica: The Game
+# Space Dude
 
-![Simplelogica: The game](assets/images/backgrounds/title.png)
+![Space Dude(assets/images/backgrounds/title.png)
 
 ## About
 
-This is an example of a game developed in Ruby using the [Gosu](https://www.libgosu.org/) library. All the resources of the game (images, music and audio effects) are some mine and some extracted from [http://opengameart.org/](http://opengameart.org/).
+This is a Gosu game, forked from vvvv
 
 ## Original author
 
@@ -20,7 +20,7 @@ Here are the pre-requisites to play this game (or be able to use Gosu):
 
 ## Getting Started
 
-To start playing this game, you only have to:
+To start playing this game:
 
 * Install Ruby version 2.2.2 (using [RVM](https://github.com/rvm/rvm) or [RBenv](https://github.com/sstephenson/rbenv) or whatever).
 
@@ -42,16 +42,7 @@ user@computer:~$ chmod +x bin/simplelogica_the_game
 user@computer:~$ bin/simplelogica_the_game
 ```
 
-Then follow the screen instructions, and have fun! :)
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
 
 ## License
 
-**Simplelogica: The Game** is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+Released under the [MIT License](http://www.opensource.org/licenses/MIT).
