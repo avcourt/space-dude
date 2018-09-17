@@ -34,12 +34,12 @@ user@computer:/simplelogica_the_game$ bundle install
 
 ## Usage
 
-Simply go to the game folder, and type `bin/simplelogica_the_game` to start playing, like this:
+Simply go to the game folder, and type `bin/space_dude` to start playing, like this:
 
 ```sh
-user@computer:~$ cd simplelogica_the_game
-user@computer:~$ chmod +x bin/simplelogica_the_game
-user@computer:~$ bin/simplelogica_the_game
+user@computer:~$ cd space_dude
+user@computer:~$ chmod +x bin/space_dude
+user@computer:~$ bin/space_dude
 ```
 
 
