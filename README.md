@@ -27,9 +27,9 @@ To start playing this game:
 * Clone the repo and do the ***bundle install*** thing:
 
 ```sh
-user@computer:~$ git clone git@github.com:dreamingechoes/simplelogica_the_game.git
-user@computer:~$ cd simplelogica_the_game
-user@computer:/simplelogica_the_game$ bundle install
+user@computer:~$ git clone https://github.com/avcourt/space-dude.git
+user@computer:~$ cd space_dude
+user@computer:/space_dude$ bundle install
 ```
 
 ## Usage
