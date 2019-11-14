@@ -29,8 +29,6 @@ module SpaceDude
       bullet_1: "assets/images/player/bullet_1.png",
       bullet_2: "assets/images/player/bullet_2.png",
       bullet_3: "assets/images/player/bullet_3.png",
-      # bullet_4: "assets/images/player/bullet_4.png",
-      # bullet_5: "assets/images/player/bullet_5.png",
       enemy_1: "assets/images/enemies/ufo_1.png",
       enemy_2: "assets/images/enemies/ufo_6.png",
       enemy_3: "assets/images/enemies/ufo_4.png",
@@ -73,7 +71,6 @@ module SpaceDude
       @paused = false
 
       @ship = nil
-      # @shield = new
       @bullets = []
       @enemies = []
       @screen = nil
@@ -99,10 +96,8 @@ module SpaceDude
       @images[@screen].draw(0, 0, 2)
       @font.draw("ESC to Quit", 20, 10, 3, 1, 0.8, Gosu::Color::GRAY)
 
-
       if @screen == :stageUI
         @ship.draw
-        # @shield.draw
         @bullets.each {|bullet| bullet.draw }
         @enemies.each {|enemy| enemy.draw }
 
@@ -116,16 +111,12 @@ module SpaceDude
         @font.draw("SCORE", 50, 878, 3, 2, 1, Gosu::Color::WHITE)
         @font.draw("#{@score}".rjust(5, '0'), 52, 918, 3, 2, 1, Gosu::Color::WHITE)
 
-        # @font.draw("#{@ship.bullet}", 668, 892, 3, 2, 1, Gosu::Color::WHITE)
-
         @font.draw("WEAPON", 712, 877, 3, 1.2, 0.75, Gosu::Color::WHITE)
         @images[:"bullet_#{@ship.bullet}"].draw(736, 935, 2, 2.5, 2.5)
         track_title = AUDIO_ASSETS[:"stage_music_#{@track}"].split('/')[-1]
 
         @font.draw("Track: #{track_title}", 580, 10, 3, 0.6, 0.7, Gosu::Color::GRAY)
-        # @font.draw("Track:#{@track}", 600, 10, 3, 0.7, 0.7, Gosu::Color::WHITE)
-        # @font.draw("PAUSED", 67, 210, 3, 8, 7, Gosu::Color::GRAY) if @paused
-        #
+
         if @paused
           @font.draw("PAUSED", 67, 210, 3, 8, 7, Gosu::Color::GRAY)
           @font.draw("<space> ................ shoot", 230, 500, 3, 1.3, 1, Gosu::Color::WHITE)
@@ -133,7 +124,6 @@ module SpaceDude
           @font.draw("<D> ........... change song", 230, 564, 3, 1.3, 1, Gosu::Color::WHITE)
           @font.draw("<P> ............ toggle pause", 230, 596, 3, 1.3, 1, Gosu::Color::WHITE)
         end
-
 
       elsif @screen == :background_game_over
         @font.draw("SCORE: #{@score.to_s.rjust(5, '0')}", 244, 522, 3, 2, 1, Gosu::Color::WHITE)
@@ -183,18 +173,20 @@ module SpaceDude
         if key == Gosu::KbSpace
           self.shoot
         end
-        @ship.bullet = (@ship.bullet + 1) % 4 if key == (Gosu::KbA)
-        # @audio[:"stage_music_#{(@track += 1) % 4}"].play(true) if key == (Gosu::KbD)
+
+        if key == (Gosu::KbA)
+          @fx[:reload].play(1.0)
+          @ship.bullet = (@ship.bullet + 1) % 4 
+        end
+
         if key == (Gosu::KbD)
-          @fx[:radio].play(0.2)
+          @fx[:radio].play
           @audio[:"stage_music_#{@track = (@track + 1) % 4}"].play(true)
         end
         if key == (Gosu::KbP)
           @paused ^= true
           toggle_music
-          # @screen = :stageUI if @paused
         end
-
 
       end
     end
@@ -221,7 +213,6 @@ module SpaceDude
       current_time = Gosu::milliseconds / 1000.0
       @delta = [current_time - @last_time, 0.25].min
       @last_time = current_time
-      puts @last_time
     end
 
     def setup_game
@@ -263,14 +254,12 @@ module SpaceDude
 
     def toggle_music
       current_song = Gosu::Song.current_song
-      # puts "#{Gosu::Song.current_song}"if Gosu::Song.current_song
       if current_song.playing?
         current_song.pause
       else
         current_song.play(true)
       end
     end
-
 
   end# class game
 end#module
