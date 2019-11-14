@@ -4,7 +4,7 @@
 
 ## About
 
-This is a Gosu game, forked from [dreamingechoes](https://github.com/dreamingechoes)
+This is a Gosu game written in Ruby.
 
 ## Install dependencies
 
