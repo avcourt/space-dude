@@ -31,6 +31,6 @@ module SpaceDude
     def points
       @delta * 10
     end
-    
+
   end
 end

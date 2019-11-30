@@ -33,6 +33,6 @@ module SpaceDude
     def draw
       @image.draw_rot(@x, @y, @z, @angle) unless @image.nil?
     end
-    
+
   end
 end

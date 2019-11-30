@@ -16,7 +16,7 @@ module SpaceDude
 
     def update
       # move upwards
-      @y -= SPEED * $game.delta * (@num/3 + 1)
+      @y -= SPEED * $game.delta * (@num / 3 + 1)
 
       # collisions against enemies
       $game.enemies.each do |enemy|

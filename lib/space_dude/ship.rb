@@ -48,8 +48,8 @@ module SpaceDude
 
 
       # clamp @x so the ship always stays inside the screen
-      @x = [[@x, $game.width-80].min, 80].max
-      @y = [[@y, $game.height-260].min, 80].max
+      @x = [[@x, $game.width - 80].min, 80].max
+      @y = [[@y, $game.height - 260].min, 80].max
     end
 
   end

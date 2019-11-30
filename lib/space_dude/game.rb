@@ -9,56 +9,56 @@ module SpaceDude
     SPEED = 400
 
     IMAGE_ASSETS = {
-      background_title: "assets/images/backgrounds/space_dick.png",
-      background_stage: "assets/images/backgrounds/stage.png",
-      stageUI: "assets/images/backgrounds/spaceship_in_song.png",
-      background_game_over: "assets/images/backgrounds/game_over_1.png",
-      paused_backround: "assets/images/backgrounds/paused_backround.png",
-      space: "assets/images/backgrounds/space.png",
-      space_2: "assets/images/backgrounds/space_2.jpg",
-      space_3: "assets/images/backgrounds/space_3.png",
-      space_4: "assets/images/backgrounds/space_4.png",
-      ship: "assets/images/player/spaceship_3_small_longer.png",
-      ship_burst: "assets/images/player/spaceship_3_small_long_burst.png",
-      ship_reverse: "assets/images/player/spaceship_3_small_reverse.png",
-      ship_left: "assets/images/player/spaceship_left_1.png",
-      ship_right: "assets/images/player/spaceship_right_1.png",
-      shield: "assets/images/player/shield_p.png",
-      ship_shield: "assets/images/player/shield_ship.png",
-      bullet_0: "assets/images/player/bullet_0.png",
-      bullet_1: "assets/images/player/bullet_1.png",
-      bullet_2: "assets/images/player/bullet_2.png",
-      bullet_3: "assets/images/player/bullet_3.png",
-      enemy_1: "assets/images/enemies/ufo_1.png",
-      enemy_2: "assets/images/enemies/ufo_6.png",
-      enemy_3: "assets/images/enemies/ufo_4.png",
-      empty: "assets/images/player/empty.png"
+        background_title: "assets/images/backgrounds/space_dick.png",
+        background_stage: "assets/images/backgrounds/stage.png",
+        stageUI: "assets/images/backgrounds/spaceship_in_song.png",
+        background_game_over: "assets/images/backgrounds/game_over_1.png",
+        paused_backround: "assets/images/backgrounds/paused_backround.png",
+        space: "assets/images/backgrounds/space.png",
+        space_2: "assets/images/backgrounds/space_2.jpg",
+        space_3: "assets/images/backgrounds/space_3.png",
+        space_4: "assets/images/backgrounds/space_4.png",
+        ship: "assets/images/player/spaceship_3_small_longer.png",
+        ship_burst: "assets/images/player/spaceship_3_small_long_burst.png",
+        ship_reverse: "assets/images/player/spaceship_3_small_reverse.png",
+        ship_left: "assets/images/player/spaceship_left_1.png",
+        ship_right: "assets/images/player/spaceship_right_1.png",
+        shield: "assets/images/player/shield_p.png",
+        ship_shield: "assets/images/player/shield_ship.png",
+        bullet_0: "assets/images/player/bullet_0.png",
+        bullet_1: "assets/images/player/bullet_1.png",
+        bullet_2: "assets/images/player/bullet_2.png",
+        bullet_3: "assets/images/player/bullet_3.png",
+        enemy_1: "assets/images/enemies/ufo_1.png",
+        enemy_2: "assets/images/enemies/ufo_6.png",
+        enemy_3: "assets/images/enemies/ufo_4.png",
+        empty: "assets/images/player/empty.png"
     }
 
     AUDIO_ASSETS = {
-      title_music: "assets/fixtures/Tronic-Trouble_v001.mp3",
-      stage_music_0: "assets/fixtures/Hypnotic-Puzzle.mp3",
-      stage_music_1: "assets/fixtures/The-Toy-Factory.mp3",
-      stage_music_2: "assets/fixtures/Mega_Drive-Converter.mp3",
-      stage_music_3: "assets/fixtures/Defending-Their-City.mp3",
-      game_over_music: "assets/fixtures/Evil-Automation.mp3",
+        title_music: "assets/fixtures/Tronic-Trouble_v001.mp3",
+        stage_music_0: "assets/fixtures/Hypnotic-Puzzle.mp3",
+        stage_music_1: "assets/fixtures/The-Toy-Factory.mp3",
+        stage_music_2: "assets/fixtures/Mega_Drive-Converter.mp3",
+        stage_music_3: "assets/fixtures/Defending-Their-City.mp3",
+        game_over_music: "assets/fixtures/Evil-Automation.mp3",
     }
 
     FX_ASSETS = {
-      shoot_0: "assets/fixtures/shoot.wav",
-      shoot_1: "assets/fixtures/bomb_2.wav",
-      shoot_2: "assets/fixtures/missle.wav",
-      shoot_3: "assets/fixtures/lazt.wav",
-      kill: "assets/fixtures/bomb_explosion.wav",
-      shoot: "assets/fixtures/shoot.wav",
-      death: "assets/fixtures/death.wav",
-      blast: "assets/fixtures/blast.wav",
-      radio: "assets/fixtures/radio.flac",
-      reload: "assets/fixtures/reload.wav",
+        shoot_0: "assets/fixtures/shoot.wav",
+        shoot_1: "assets/fixtures/bomb_2.wav",
+        shoot_2: "assets/fixtures/missle.wav",
+        shoot_3: "assets/fixtures/lazt.wav",
+        kill: "assets/fixtures/bomb_explosion.wav",
+        shoot: "assets/fixtures/shoot.wav",
+        death: "assets/fixtures/death.wav",
+        blast: "assets/fixtures/blast.wav",
+        radio: "assets/fixtures/radio.flac",
+        reload: "assets/fixtures/reload.wav",
     }
 
     FONT_ASSETS = {
-      font: "assets/fonts/pixelade-webfont.ttf"
+        font: "assets/fonts/pixelade-webfont.ttf"
     }
 
     def initialize
@@ -98,8 +98,8 @@ module SpaceDude
 
       if @screen == :stageUI
         @ship.draw
-        @bullets.each {|bullet| bullet.draw }
-        @enemies.each {|enemy| enemy.draw }
+        @bullets.each { |bullet| bullet.draw }
+        @enemies.each { |enemy| enemy.draw }
 
         if @space_y < 0
           @space_y += SPEED * $game.delta
@@ -130,7 +130,7 @@ module SpaceDude
 
         prompt = "Hit <Enter> to play again"
         if Time.now.to_i % 2 == 0
-            @font.draw(prompt, 229, 445, 3, 1.2, 0.7, Gosu::Color::AQUA)
+          @font.draw(prompt, 229, 445, 3, 1.2, 0.7, Gosu::Color::AQUA)
         end
 
       end
@@ -144,8 +144,8 @@ module SpaceDude
 
           @ship.update
           @shield.update(@ship.x, @ship.y, 3)
-          @bullets.each {|bullet| bullet.update }
-          @enemies.each {|enemy| enemy.update }
+          @bullets.each { |bullet| bullet.update }
+          @enemies.each { |enemy| enemy.update }
 
           self.handle_kills
         else
@@ -176,7 +176,7 @@ module SpaceDude
 
         if key == (Gosu::KbA)
           @fx[:reload].play(1.0)
-          @ship.bullet = (@ship.bullet + 1) % 4 
+          @ship.bullet = (@ship.bullet + 1) % 4
         end
 
         if key == (Gosu::KbD)
@@ -229,13 +229,13 @@ module SpaceDude
 
     def spawn_enemies
       if rand(50) < 50 * @delta
-        @enemies.push(Enemy.new(rand(3)+1))
+        @enemies.push(Enemy.new(rand(3) + 1))
       end
     end
 
     def handle_kills
-      @enemies.reject! {|x| x.killed? }
-      @bullets.reject! {|x| x.killed? }
+      @enemies.reject! { |x| x.killed? }
+      @bullets.reject! { |x| x.killed? }
       self.game_over if @ship.killed? && !@dead
     end
 
@@ -261,5 +261,5 @@ module SpaceDude
       end
     end
 
-  end# class game
-end#module
+  end # class game
+end #module
