@@ -22,20 +22,20 @@ To start playing this game:
 
 * Clone the repo and do the ***bundle install*** thing:
 
-```sh
-user@computer:~$ git clone https://github.com/avcourt/space-dude.git
-user@computer:~$ cd space_dude
-user@computer:/space_dude$ bundle install
+```bash
+$ git clone https://github.com/avcourt/space-dude.git
+$ cd space_dude
+$ /space_dude$ bundle install
 ```
 
 ## Usage
 
 Simply go to the game folder, and type `bin/space_dude` to start playing, like this:
 
-```sh
-user@computer:~$ cd space_dude
-user@computer:~$ chmod +x bin/space_dude
-user@computer:~$ bin/space_dude
+```bash
+$ cd space_dude
+$ chmod +x bin/space_dude
+$ bin/space_dude
 ```
 
 
