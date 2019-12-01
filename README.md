@@ -1,6 +1,6 @@
 # Space Dude
 
-![Space Dude](assets/images/doc/spacedude-screenshot.gif)
+![Space Dude](assets/images/doc/spacedude-screenshot-lrg.gif)
 
 ## About
 
