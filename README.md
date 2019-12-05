@@ -6,6 +6,8 @@
 
 This is a Gosu game written in Ruby.
 
+Forked from https://github.com/dreamingechoes/simplelogica_the_game
+
 ## Install dependencies
 
 Here are the pre-requisites to play this game (or be able to use Gosu):
@@ -20,7 +22,7 @@ To start playing this game:
 
 * Install Ruby version 2.2.2 (using [RVM](https://github.com/rvm/rvm) or [RBenv](https://github.com/sstephenson/rbenv) or whatever).
 
-* Clone the repo and do the ***bundle install*** thing:
+* Clone the repo and run ***bundle install***:
 
 ```bash
 $ git clone https://github.com/avcourt/space-dude.git
@@ -30,7 +32,7 @@ $ /space_dude$ bundle install
 
 ## Usage
 
-Simply go to the game folder, and type `bin/space_dude` to start playing, like this:
+Simply go to the game folder, and type `bin/space_dude` to start playing:
 
 ```bash
 $ cd space_dude
