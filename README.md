@@ -6,8 +6,6 @@
 
 This is a Gosu game written in Ruby.
 
-Forked from https://github.com/dreamingechoes/simplelogica_the_game
-
 ## Install dependencies
 
 Here are the pre-requisites to play this game (or be able to use Gosu):
